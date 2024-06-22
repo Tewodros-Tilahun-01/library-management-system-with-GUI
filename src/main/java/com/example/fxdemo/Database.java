@@ -11,7 +11,7 @@ public class Database {
             System.out.println("Driver loaded");
 
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/library", "root", "1234");
-//            System.out.print(conn);
+
             System.out.println("Database connected");
         }catch (Exception e){
             System.out.println("something wrong");
