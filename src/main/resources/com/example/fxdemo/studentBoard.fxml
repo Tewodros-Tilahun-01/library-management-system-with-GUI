@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.StudentBoardController">
+    <left>
+        <VBox alignment="CENTER" prefHeight="722.0" prefWidth="239.0" style="-fx-background-color: #CADEFC;" BorderPane.alignment="CENTER">
+            <children>
+                <Pane prefHeight="195.0" prefWidth="247.0">
+                    <children>
+                        <Separator layoutX="49.0" layoutY="144.0" prefHeight="22.0" prefWidth="116.0" />
+                        <Text fill="#a11f1f" layoutX="56.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="welcome" textOrigin="BOTTOM" wrappingWidth="101.13671875">
+                            <font>
+                                <Font name="Arial" size="25.0" />
+                            </font>
+                        </Text>
+                    </children>
+                    <opaqueInsets>
+                        <Insets top="30.0" />
+                    </opaqueInsets>
+                </Pane>
+                <Button mnemonicParsing="false" onAction="#displayBook" prefHeight="37.0" prefWidth="179.0" style="-fx-border-color: white;" text="book">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+                </Button>
+                <Button defaultButton="true" mnemonicParsing="false" onAction="#displayStudent" prefHeight="37.0" prefWidth="179.0" text="Student">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+                </Button>
+                <AnchorPane prefHeight="120.0" prefWidth="213.0">
+                    <children>
+                        <Button layoutX="69.0" layoutY="157.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="80.0" text="logout" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox alignment="TOP_CENTER" prefHeight="722.0" prefWidth="538.0" BorderPane.alignment="CENTER">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="student list" textAlignment="CENTER" wrappingWidth="358.13671875">
+                    <font>
+                        <Font name="Arial" size="44.0" />
+                    </font>
+                </Text>
+                <Separator prefHeight="21.0" prefWidth="481.0" />
+            </children>
+        </VBox>
+    </center>
+    <right>
+        <TabPane prefHeight="722.0" prefWidth="392.0" style="-fx-background-color: #CADEFC;" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Add library">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="422.0">
+                            <children>
+                                <Label layoutX="19.0" layoutY="86.0" text="password">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="libPassword" layoutX="112.0" layoutY="83.0" promptText="abebe@1234" />
+                                <Label layoutX="20.0" layoutY="36.0" text="user name">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="libUserName" layoutX="112.0" layoutY="34.0" promptText="abebe" />
+                                <Button layoutX="48.0" layoutY="152.0" mnemonicParsing="false" onAction="#addLIbrarian" text="Add Librarian">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Add Student">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="422.0">
+                            <children>
+                                <Label layoutX="42.0" layoutY="41.0" text="Id">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="stdId" layoutX="112.0" layoutY="39.0" promptText="BDU1234567" />
+                                <Label layoutX="20.0" layoutY="89.0" text="user name">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="stdUserName" layoutX="112.0" layoutY="87.0" promptText="abebe" />
+                                <Label layoutX="17.0" layoutY="139.0" text="password">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="stdPassword" layoutX="110.0" layoutY="136.0" promptText="abebe@1234" />
+                                <Button layoutX="65.0" layoutY="217.0" mnemonicParsing="false" onAction="#addStudent" text="Add Student">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Add Book">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="385.0">
+                            <children>
+                                <Label layoutX="18.0" layoutY="54.0" text="Book name">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="bookName" layoutX="122.0" layoutY="52.0" promptText="note book" />
+                                <Label layoutX="24.0" layoutY="90.0" text="Author">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="author" layoutX="122.0" layoutY="88.0" promptText="abebe" />
+                                <Label layoutX="25.0" layoutY="137.0" text="Publisher">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="publisher" layoutX="122.0" layoutY="134.0" promptText="brihan" />
+                                <Label layoutX="32.0" layoutY="181.0" text="year">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="year" layoutX="122.0" layoutY="179.0" promptText="2024" />
+                                <Label layoutX="22.0" layoutY="235.0" text="serial number">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="serianumber" layoutX="122.0" layoutY="233.0" promptText="123456" />
+                                <Button layoutX="88.0" layoutY="289.0" mnemonicParsing="false" onAction="#addBook" text="Add Book">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Delete Book">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <Label layoutX="22.0" layoutY="52.0" text="serial number">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="delSerialNumber" layoutX="122.0" layoutY="50.0" promptText="123456" />
+                                <Button layoutX="67.0" layoutY="102.0" mnemonicParsing="false" onAction="#deleteBook" text="Delete Book">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </right>
+</BorderPane>
