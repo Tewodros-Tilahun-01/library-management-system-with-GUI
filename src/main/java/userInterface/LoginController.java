@@ -55,7 +55,7 @@ public class LoginController {
             // User found
             Stage stage = (Stage)button.getScene().getWindow();
             stage.setFullScreen(true);
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("bookBoard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showBooks.fxml"));
             Scene root = null;
 
             try {
@@ -63,14 +63,15 @@ public class LoginController {
             } catch (IOException e) {
                 System.out.println("load error");
             }
-            stage.setTitle("Dashboard");
+            stage.setTitle("librarian");
             stage.setScene(root);
             stage.centerOnScreen();
 
 
         } else {
             // User not found
-            System.out.println("User not found: " + username);
+           librarianName.setStyle("-fx-border-color: red");
+           librarianPassword.setStyle("-fx-border-color: red");
         }
 
         // Close the resources
@@ -95,10 +96,25 @@ public class LoginController {
 
         if (resultSet.next()) {
             // User found
-            System.out.println("User found: " + username);
+            Stage stage = (Stage)button.getScene().getWindow();
+            stage.setFullScreen(true);
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBookBoard.fxml"));
+            Scene root = null;
+
+            try {
+                root = new Scene(fxmlLoader.load());
+            } catch (IOException e) {
+                System.out.println("load error");
+            }
+            stage.setTitle("student");
+            stage.setScene(root);
+            stage.centerOnScreen();
+
         } else {
             // User not found
-            System.out.println("User not found: " + username);
+            studentName.setStyle("-fx-border-color: red");
+            studentPassword.setStyle("-fx-border-color: red");
+
         }
 
         // Close the resources

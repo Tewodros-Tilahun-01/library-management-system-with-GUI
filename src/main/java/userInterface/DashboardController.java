@@ -30,18 +30,19 @@ public class DashboardController {
     public void addLIbrarian(ActionEvent actionEvent) throws SQLException {
         String userName = libUserName.getText();
         String password = libPassword.getText();
+
         boolean valid = true;
         if(Objects.equals(userName, "")){
             libUserName.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            libUserName.setStyle("-fx-border-color: green");
+            libUserName.setStyle("-fx-border-color: none");
         }
         if(Objects.equals(password, "")){
            libPassword.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            libPassword.setStyle("-fx-border-color: green");
+            libPassword.setStyle("-fx-border-color: none");
         }
 
         if(valid) {
@@ -51,31 +52,34 @@ public class DashboardController {
             alert.setHeaderText("librarian successfully added");
             alert.setContentText("I have a great day");
             alert.show();
+            libUserName.setText("");
+            libPassword.setText("");
         }
     }
     public void addStudent(ActionEvent actionEvent) throws SQLException {
         String id = stdId.getText();
         String userName = stdUserName.getText();
         String password = stdPassword.getText();
+
         boolean valid = true;
         if(Objects.equals(id, "")){
             stdId.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            stdId.setStyle("-fx-border-color: green");
+            stdId.setStyle("-fx-border-color: none");
 
         }
         if(Objects.equals(userName, "")){
             stdUserName.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            stdUserName.setStyle("-fx-border-color: green");
+            stdUserName.setStyle("-fx-border-color: none");
         }
         if(Objects.equals(password, "")){
             stdPassword.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            stdPassword.setStyle("-fx-border-color: green");
+            stdPassword.setStyle("-fx-border-color: none");
         }
 
         if(valid) {
@@ -85,6 +89,9 @@ public class DashboardController {
             alert.setHeaderText("student successfully added");
             alert.setContentText("I have a great day");
             alert.show();
+            stdId.setText("");
+            stdUserName.setText("");
+            stdPassword.setText("");
         }
 
     }
@@ -95,12 +102,13 @@ public class DashboardController {
         String a = author.getText();
         String y = year.getText();
         String s = serianumber.getText();
+
         boolean valid = true;
         if(Objects.equals(b, "")){
             bookName.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            bookName.setStyle("-fx-border-color: green");
+            bookName.setStyle("-fx-border-color: none");
 
         }
 
@@ -108,7 +116,7 @@ public class DashboardController {
             publisher.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            publisher.setStyle("-fx-border-color: green");
+            publisher.setStyle("-fx-border-color: none");
 
         }
 
@@ -116,21 +124,21 @@ public class DashboardController {
             author.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            author.setStyle("-fx-border-color: green");
+            author.setStyle("-fx-border-color: none");
 
         }
         if(Objects.equals(y, "")){
             year.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            year.setStyle("-fx-border-color: green");
+            year.setStyle("-fx-border-color: none");
 
         }
         if(Objects.equals(s, "")){
             serianumber.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            serianumber.setStyle("-fx-border-color: green");
+            serianumber.setStyle("-fx-border-color: none");
 
         }
 
@@ -142,6 +150,11 @@ public class DashboardController {
             alert.setHeaderText("book successfully added");
             alert.setContentText("I have a great day");
             alert.show();
+            bookName.setText("");
+            publisher.setText("");
+            author.setText("");
+            year.setText("");
+            serianumber.setText("");
         }
     }
 
@@ -153,7 +166,7 @@ public class DashboardController {
             delSerialNumber.setStyle("-fx-border-color: red");
             valid = false;
         }else {
-            delSerialNumber.setStyle("-fx-border-color: green");
+            delSerialNumber.setStyle("-fx-border-color: none");
 
         }
 
@@ -168,12 +181,14 @@ public class DashboardController {
             }
             alert.setContentText("I have a great day");
             alert.show();
+            delSerialNumber.setText("");
+
         }
     }
 
     public void displayBook(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)serianumber.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("bookBoard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showBooks.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("LIBRARY");
@@ -185,7 +200,7 @@ public class DashboardController {
 
     public void displayStudent(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)serianumber.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBoard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showStudent.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("LIBRARY");
