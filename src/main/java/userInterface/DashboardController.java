@@ -83,15 +83,23 @@ public class DashboardController {
         }
 
         if(valid) {
-            Operator.addStudent(id ,userName,password);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("message");
-            alert.setHeaderText("student successfully added");
-            alert.setContentText("I have a great day");
-            alert.show();
-            stdId.setText("");
-            stdUserName.setText("");
-            stdPassword.setText("");
+            boolean res = Operator.addStudent(id, userName, password);
+            if (res) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("message");
+                alert.setHeaderText("student successfully added");
+                alert.setContentText("I have a great day");
+                alert.show();
+                stdId.setText("");
+                stdUserName.setText("");
+                stdPassword.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("message");
+                alert.setHeaderText("username is taken");
+                alert.setContentText("try again");
+                alert.show();
+            }
         }
 
     }
@@ -144,17 +152,25 @@ public class DashboardController {
 
 
         if(valid) {
-            Operator.addBook(b,p,a,y,s);
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("message");
-            alert.setHeaderText("book successfully added");
-            alert.setContentText("I have a great day");
-            alert.show();
-            bookName.setText("");
-            publisher.setText("");
-            author.setText("");
-            year.setText("");
-            serianumber.setText("");
+           boolean res =  Operator.addBook(b,p,a,y,s);
+            if(res) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("message");
+                alert.setHeaderText("book successfully added");
+                alert.setContentText("I have a great day");
+                alert.show();
+                bookName.setText("");
+                publisher.setText("");
+                author.setText("");
+                year.setText("");
+                serianumber.setText("");
+            }else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("message");
+                alert.setHeaderText("book with the same serialnumber exit");
+                alert.setContentText("please try again");
+                alert.show();
+            }
         }
     }
 
