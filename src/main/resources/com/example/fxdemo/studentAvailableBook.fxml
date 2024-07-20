@@ -54,7 +54,7 @@
     <center>
         <VBox alignment="TOP_CENTER" prefHeight="722.0" prefWidth="538.0" BorderPane.alignment="CENTER">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="book List" textAlignment="CENTER" wrappingWidth="345.13671875">
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Available books" textAlignment="CENTER" wrappingWidth="345.13671875">
                     <font>
                         <Font name="Arial" size="44.0" />
                     </font>
