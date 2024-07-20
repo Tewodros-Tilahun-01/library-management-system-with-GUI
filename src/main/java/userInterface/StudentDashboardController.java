@@ -113,5 +113,6 @@ public class StudentDashboardController {
         stage.setScene(scene);
         stage.show();
         stage.centerOnScreen();
+
     }
 }

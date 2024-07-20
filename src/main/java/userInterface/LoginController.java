@@ -53,12 +53,13 @@ public class LoginController {
         ResultSet resultSet = preparedStatement.executeQuery();
 
         if (resultSet.next()) {
+
+
             // User found
             Stage stage = (Stage)button.getScene().getWindow();
             stage.setFullScreen(true);
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showBooks.fxml"));
             Scene root = null;
-            Operator.login = String.valueOf(studentName);
 
             try {
                 root = new Scene(fxmlLoader.load());
@@ -97,6 +98,8 @@ public class LoginController {
         ResultSet resultSet = preparedStatement.executeQuery();
 
         if (resultSet.next()) {
+            Operator.login = studentName.getText();
+
             // User found
             Stage stage = (Stage)button.getScene().getWindow();
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBookBoard.fxml"));
