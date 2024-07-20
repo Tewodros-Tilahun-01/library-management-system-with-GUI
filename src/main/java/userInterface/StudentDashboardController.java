@@ -17,7 +17,7 @@ public class StudentDashboardController {
     @FXML
     public TextField serialNumber;
     @FXML
-    public TextField id;
+    public TextField username;
 
     @FXML
     public TextField delId;
@@ -50,7 +50,7 @@ public class StudentDashboardController {
 
 
     public void borrowBook(ActionEvent actionEvent) throws SQLException {
-        String i = id.getText();
+        String i = username.getText();
         String s = serialNumber.getText();
 
         boolean[]  result = Operator.borrowBook(i,s);

@@ -32,7 +32,7 @@ public class StudentBookBoardController extends  StudentDashboardController impl
     public static ObservableList<Book> getBookList() throws SQLException {
         ObservableList<Book> bookList = FXCollections.observableArrayList();
         Connection conn = new Database().getConn();
-        String sql = "select * from book";
+        String sql = "SELECT b.name,b.author,b.publisher,b.year,s.serialnumber FROM book b JOIN stoke s ON b.serialnumber =s.serialnumber;";
 
          Statement stmt = conn.createStatement();
          ResultSet rs = stmt.executeQuery(sql);

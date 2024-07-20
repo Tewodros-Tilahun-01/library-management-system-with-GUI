@@ -103,14 +103,14 @@ public class Operator {
         }
         return valid;
     }
-    public  static  boolean[]  borrowBook(String id , String serialnumber) throws SQLException {
+    public  static  boolean[]  borrowBook(String username , String serialnumber) throws SQLException {
         Connection conn = new Database().getConn();
         boolean valid1 = false;
         boolean valid2 = false;
 
-        String sql = "SELECT * FROM student WHERE id = ?";
+        String sql = "SELECT * FROM student WHERE username = ?";
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1, id);
+        preparedStatement.setString(1, username);
         ResultSet resultSet = preparedStatement.executeQuery();
         if(resultSet.next()){
             valid1 = true;
@@ -133,7 +133,7 @@ public class Operator {
 
             String sql4 = "insert into borrowedbooks values(?,?)";
             PreparedStatement preparedStatement4 = conn.prepareStatement(sql4);
-            preparedStatement4.setString(1, id);
+            preparedStatement4.setString(1, username);
             preparedStatement4.setString(2, serialnumber);
             preparedStatement4.executeUpdate();
 
@@ -144,14 +144,14 @@ public class Operator {
         return result;
     }
 
-    public static boolean[] returnBook(String id, String serialnumber) throws SQLException {
+    public static boolean[] returnBook(String username, String serialnumber) throws SQLException {
         Connection conn = new Database().getConn();
         boolean valid1 = false;
         boolean valid2 = false;
 
-        String sql = "SELECT * FROM borrowedbooks WHERE id = ?";
+        String sql = "SELECT * FROM borrowedbooks WHERE username = ?";
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1, id);
+        preparedStatement.setString(1, username);
         ResultSet resultSet = preparedStatement.executeQuery();
         if(resultSet.next()){
             valid1 = true;
@@ -167,9 +167,9 @@ public class Operator {
         }
 
         if(valid1 && valid2){
-            String sql3 = "DELETE FROM borrowedbooks WHERE id = ?  and serialnumber = ?";
+            String sql3 = "DELETE FROM borrowedbooks WHERE username = ?  and serialnumber = ?";
             PreparedStatement preparedStatement3 = conn.prepareStatement(sql3);
-            preparedStatement3.setString(1, id);
+            preparedStatement3.setString(1, username);
             preparedStatement3.setString(2, serialnumber);
             preparedStatement3.executeUpdate();
 

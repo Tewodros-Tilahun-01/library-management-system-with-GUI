@@ -85,12 +85,12 @@
                                     </font>
                                 </Label>
                                 <TextField fx:id="serialNumber" layoutX="112.0" layoutY="83.0" promptText="776644" />
-                                <Label layoutX="42.0" layoutY="37.0" text="id">
+                                <Label layoutX="21.0" layoutY="37.0" text="User name">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </Label>
-                                <TextField fx:id="id" layoutX="112.0" layoutY="34.0" promptText="12345" />
+                                <TextField fx:id="username" layoutX="112.0" layoutY="34.0" promptText="abebe" />
                                 <Button layoutX="48.0" layoutY="152.0" mnemonicParsing="false" onAction="#borrowBook" text="Borrow book">
                                     <font>
                                         <Font size="18.0" />
@@ -115,12 +115,12 @@
                                         <Font size="18.0" />
                                     </font>
                                 </Button>
-                                <Label layoutX="43.0" layoutY="39.0" text="id">
+                                <Label layoutX="20.0" layoutY="40.0" text="User name">
                                     <font>
                                         <Font size="14.0" />
                                     </font>
                                 </Label>
-                                <TextField fx:id="delId" layoutX="114.0" layoutY="37.0" promptText="12345" />
+                                <TextField fx:id="delId" layoutX="114.0" layoutY="37.0" promptText="abebe" />
                             </children>
                         </AnchorPane>
                     </content>
