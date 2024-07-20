@@ -9,7 +9,9 @@ import java.sql.SQLException;
 
 public class Operator {
 
-    public static void addLibrarian(String userName,String password) throws SQLException {
+    public static String login;
+
+    public static void addLibrarian(String userName, String password) throws SQLException {
         Connection conn = new Database().getConn();
 
         String sql = "insert into librarian values( ?,?)";
