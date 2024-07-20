@@ -1,8 +1,9 @@
-package userInterface;
+package userInterface.librarian;
 
 import com.example.fxdemo.Main;
 import com.example.fxdemo.Operator;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -13,20 +14,44 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Objects;
 
-public class DashboardController {
+public class LibrarianDashboardController {
+    @FXML
     public TextField libUserName;
+    @FXML
+
     public TextField libPassword;
+    @FXML
+
     public TextField stdId;
+    @FXML
+
     public TextField stdUserName;
+    @FXML
+
     public TextField stdPassword;
+    @FXML
+
     public TextField bookName;
+    @FXML
+
     public TextField publisher;
+    @FXML
+
     public TextField author;
+    @FXML
+
     public TextField year;
+    @FXML
+
     public TextField serianumber;
+    @FXML
+
     public TextField delSerialNumber;
 
 
+
+
+    @FXML
     public void addLIbrarian(ActionEvent actionEvent) throws SQLException {
         String userName = libUserName.getText();
         String password = libPassword.getText();
@@ -55,7 +80,9 @@ public class DashboardController {
             libUserName.setText("");
             libPassword.setText("");
         }
+
     }
+    @FXML
     public void addStudent(ActionEvent actionEvent) throws SQLException {
         String id = stdId.getText();
         String userName = stdUserName.getText();
@@ -103,7 +130,7 @@ public class DashboardController {
         }
 
     }
-
+@FXML
     public void addBook(ActionEvent actionEvent) throws SQLException {
         String b =  bookName.getText();
         String p =  publisher.getText();
@@ -173,7 +200,7 @@ public class DashboardController {
             }
         }
     }
-
+    @FXML
     public void deleteBook(ActionEvent actionEvent) throws SQLException {
         String serial = delSerialNumber.getText();
         boolean valid = true;
@@ -201,10 +228,9 @@ public class DashboardController {
 
         }
     }
-
-    public void displayBook(ActionEvent actionEvent) throws IOException {
+    public void displayAvalibleBooks(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)serianumber.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showBooks.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("librarianAvailableBooks.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("LIBRARY");
@@ -213,10 +239,22 @@ public class DashboardController {
         stage.centerOnScreen();
 
     }
+    @FXML
+    public void displayBorrowedStudnts(ActionEvent actionEvent) throws IOException {
+        Stage stage = (Stage)serianumber.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("librarianBorrowBook.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
 
+        stage.setTitle("LIBRARY");
+        stage.setScene(scene);
+
+        stage.centerOnScreen();
+
+    }
+    @FXML
     public void displayStudent(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)serianumber.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showStudent.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("librarianStudent.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("LIBRARY");
@@ -224,6 +262,7 @@ public class DashboardController {
         stage.centerOnScreen();
 
     }
+    @FXML
     public void logout(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("loginPage.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

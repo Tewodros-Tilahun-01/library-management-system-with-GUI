@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,7 +16,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.ShowBooksController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.librarian.LibrarianAvailableBooksController">
    <left>
       <VBox alignment="CENTER" prefHeight="722.0" prefWidth="239.0" style="-fx-background-color: #CADEFC;" BorderPane.alignment="CENTER">
          <children>
@@ -31,7 +33,12 @@
                   <Insets top="30.0" />
                </opaqueInsets>
             </Pane>
-            <Button defaultButton="true" mnemonicParsing="false" onAction="#displayBook" prefHeight="37.0" prefWidth="179.0" text="book">
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#displayAvalibleBooks" prefHeight="37.0" prefWidth="179.0" text="Avaliable Books">
+            <font>
+               <Font size="14.0" />
+            </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#displayBorrowedStudnts" prefHeight="37.0" prefWidth="179.0" text="Borrowed Students">
                <font>
                   <Font size="14.0" />
                </font>
@@ -52,12 +59,21 @@
    <center>
       <VBox alignment="TOP_CENTER" prefHeight="722.0" prefWidth="538.0" BorderPane.alignment="CENTER">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="book List" textAlignment="CENTER" wrappingWidth="345.13671875">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Avaliable Books" textAlignment="CENTER" wrappingWidth="345.13671875">
                <font>
                   <Font name="Arial" size="44.0" />
                </font>
             </Text>
             <Separator prefHeight="28.0" prefWidth="473.0" />
+            <TableView fx:id="table" prefHeight="651.0" prefWidth="473.0">
+               <columns>
+                  <TableColumn fx:id="colname" prefWidth="118.0" text="Book name" />
+                  <TableColumn fx:id="colyear" prefWidth="82.0" text="Year" />
+                  <TableColumn fx:id="colauthor" prefWidth="75.0" text="Author" />
+                  <TableColumn fx:id="colpublisher" prefWidth="101.0" text="Publisher" />
+                  <TableColumn fx:id="colserial" prefWidth="87.0" text="Serial No." />
+               </columns>
+            </TableView>
          </children>
       </VBox>
    </center>

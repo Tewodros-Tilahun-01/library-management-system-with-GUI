@@ -10,4 +10,8 @@ module com.example.fxdemo {
     exports com.example.fxdemo;
     exports userInterface;
     opens userInterface to javafx.fxml;
+    exports userInterface.librarian;
+    opens userInterface.librarian to javafx.fxml;
+    exports userInterface.student;
+    opens userInterface.student to javafx.fxml;
 }

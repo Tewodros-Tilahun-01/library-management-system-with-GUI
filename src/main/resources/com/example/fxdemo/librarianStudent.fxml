@@ -7,6 +7,8 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -15,7 +17,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.ShowStudentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="1104.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="userInterface.librarian.LibrarianStudentController">
     <left>
         <VBox alignment="CENTER" prefHeight="722.0" prefWidth="239.0" style="-fx-background-color: #CADEFC;" BorderPane.alignment="CENTER">
             <children>
@@ -32,7 +34,12 @@
                         <Insets top="30.0" />
                     </opaqueInsets>
                 </Pane>
-                <Button mnemonicParsing="false" onAction="#displayBook" prefHeight="37.0" prefWidth="179.0" style="-fx-border-color: white;" text="book">
+                <Button mnemonicParsing="false" onAction="#displayAvalibleBooks" prefHeight="37.0" prefWidth="179.0" style="-fx-border-color: white;" text="Avalible Books">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#displayBorrowedStudnts" prefHeight="37.0" prefWidth="179.0" text="Borrowed Students">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -65,6 +72,12 @@
                     </font>
                 </Text>
                 <Separator prefHeight="21.0" prefWidth="481.0" />
+                <TableView fx:id="table" prefHeight="627.0" prefWidth="473.0">
+                    <columns>
+                        <TableColumn fx:id="colid" prefWidth="106.0" text="id" />
+                        <TableColumn fx:id="coluserName" prefWidth="126.0" text="user name" />
+                    </columns>
+                </TableView>
             </children>
         </VBox>
     </center>

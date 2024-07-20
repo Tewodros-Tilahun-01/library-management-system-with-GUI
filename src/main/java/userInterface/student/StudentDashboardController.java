@@ -1,4 +1,4 @@
-package userInterface;
+package userInterface.student;
 
 import com.example.fxdemo.Main;
 import com.example.fxdemo.Operator;
@@ -27,7 +27,7 @@ public class StudentDashboardController {
 
     public void displayAvailableBooks(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)serialNumber.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBookBoard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentAvailableBook.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("LIBRARY");
@@ -38,7 +38,7 @@ public class StudentDashboardController {
 
     public void displayBorrowedBooks(ActionEvent actionEvent) throws IOException {
         Stage stage = (Stage)serialNumber.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBorrowBoard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBorrowBook.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("LIBRARY");

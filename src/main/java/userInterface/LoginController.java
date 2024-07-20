@@ -57,8 +57,7 @@ public class LoginController {
 
             // User found
             Stage stage = (Stage)button.getScene().getWindow();
-            stage.setFullScreen(true);
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showBooks.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("librarianAvailableBooks.fxml"));
             Scene root = null;
 
             try {
@@ -102,7 +101,7 @@ public class LoginController {
 
             // User found
             Stage stage = (Stage)button.getScene().getWindow();
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBookBoard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentAvailableBook.fxml"));
             Scene root = null;
 
             try {
