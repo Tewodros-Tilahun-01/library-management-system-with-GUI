@@ -2,6 +2,7 @@ package userInterface;
 
 import com.example.fxdemo.Database;
 import com.example.fxdemo.Main;
+import com.example.fxdemo.Operator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -57,6 +58,7 @@ public class LoginController {
             stage.setFullScreen(true);
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("showBooks.fxml"));
             Scene root = null;
+            Operator.login = String.valueOf(studentName);
 
             try {
                 root = new Scene(fxmlLoader.load());
@@ -97,7 +99,6 @@ public class LoginController {
         if (resultSet.next()) {
             // User found
             Stage stage = (Stage)button.getScene().getWindow();
-            stage.setFullScreen(true);
             FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("studentBookBoard.fxml"));
             Scene root = null;
 
