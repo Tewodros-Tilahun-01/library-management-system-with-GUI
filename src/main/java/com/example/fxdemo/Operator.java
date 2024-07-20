@@ -8,9 +8,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Operator {
-    public static String login = "";
+
     public static void addLibrarian(String userName,String password) throws SQLException {
         Connection conn = new Database().getConn();
+
         String sql = "insert into librarian values( ?,?)";
         PreparedStatement preparedStatement = conn.prepareStatement(sql);
         preparedStatement.setString(1, userName);
@@ -18,42 +19,69 @@ public class Operator {
         preparedStatement.executeUpdate();
         conn.close();
     }
-    public static void addStudent(String id ,String userName,String password) throws SQLException {
+    public static boolean addStudent(String id ,String userName,String password) throws SQLException {
+
         Connection conn = new Database().getConn();
-        String sql = "insert into student values( ?,?,?)";
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1, id);
-        preparedStatement.setString(2, userName);
-        preparedStatement.setString(3, password);
-        preparedStatement.executeUpdate();
-        conn.close();
+        boolean valid = true;
+
+        String sql3 = "SELECT * FROM student WHERE username = ?";
+        PreparedStatement preparedStatement3 = conn.prepareStatement(sql3);
+        preparedStatement3.setString(1, userName);
+        ResultSet resultSet = preparedStatement3.executeQuery();
+        if(resultSet.next()){
+            valid = false;
+        }
+        if(valid) {
+            String sql = "insert into student values( ?,?,?)";
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, id);
+            preparedStatement.setString(2, userName);
+            preparedStatement.setString(3, password);
+            preparedStatement.executeUpdate();
+            conn.close();
+        }
+        return valid;
     }
 
-    public static void addBook(String bookName, String publisher, String author, String year, String serialnumber) throws SQLException {
+    public static boolean addBook(String bookName, String publisher, String author, String year, String serialnumber) throws SQLException {
         Connection conn = new Database().getConn();
-        String sql = "insert into book values( ?,?,?,?,?)";
+        boolean valid = true;
 
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
-        preparedStatement.setString(1, bookName);
-        preparedStatement.setString(2, publisher);
-        preparedStatement.setString(3, author);
-        preparedStatement.setString(4, year);
-        preparedStatement.setString(5, serialnumber);
-        preparedStatement.executeUpdate();
+        String sql3 = "SELECT * FROM book WHERE serialnumber = ?";
+        PreparedStatement preparedStatement3 = conn.prepareStatement(sql3);
+        preparedStatement3.setString(1, serialnumber);
+        ResultSet resultSet = preparedStatement3.executeQuery();
+        if (resultSet.next()) {
+            valid = false;
+        }
+        if (valid) {
+            String sql = "insert into book values( ?,?,?,?,?)";
 
-        String sql2 = "insert into stoke values(?)";
-        PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
-        preparedStatement2.setString(1, serialnumber);
-        preparedStatement2.executeUpdate();
+            PreparedStatement preparedStatement = conn.prepareStatement(sql);
+            preparedStatement.setString(1, bookName);
+            preparedStatement.setString(2, publisher);
+            preparedStatement.setString(3, author);
+            preparedStatement.setString(4, year);
+            preparedStatement.setString(5, serialnumber);
+            preparedStatement.executeUpdate();
+
+            String sql2 = "insert into stoke values(?)";
+            PreparedStatement preparedStatement2 = conn.prepareStatement(sql2);
+            preparedStatement2.setString(1, serialnumber);
+            preparedStatement2.executeUpdate();
+
+        }
 
         conn.close();
+
+        return valid;
     }
 
     public static boolean deleteBook(String serialNumber) throws SQLException {
         Connection conn = new Database().getConn();
         boolean valid = false;
 
-            String sql3 = "SELECT * FROM book WHERE serialnumber = ?";
+            String sql3 = "SELECT * FROM stoke WHERE serialnumber = ?";
             PreparedStatement preparedStatement3 = conn.prepareStatement(sql3);
             preparedStatement3.setString(1, serialNumber);
             ResultSet resultSet = preparedStatement3.executeQuery();
