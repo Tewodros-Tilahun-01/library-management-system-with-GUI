@@ -1,0 +1,68 @@
+
+--
+-- Host: localhost    Database: library
+-- ------------------------------------------------------
+-- Server version	8.4.0
+
+-- create database library
+
+create database library;
+
+--
+-- Table structure for table `book`
+
+
+CREATE TABLE `book` (
+  `name` varchar(50) DEFAULT NULL,
+  `author` varchar(50) DEFAULT NULL,
+  `publisher` varchar(50) DEFAULT NULL,
+  `year` varchar(50) DEFAULT NULL,
+  `serialnumber` varchar(50) DEFAULT NULL
+) ;
+
+
+--
+-- Table structure for table `borrowedbooks`
+--
+
+CREATE TABLE `borrowedbooks` (
+  `id` varchar(50) DEFAULT NULL,
+  `serialnumber` varchar(50) DEFAULT NULL
+) ;
+
+--
+-- Table structure for table `librarian`
+--
+
+CREATE TABLE `librarian` (
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL
+) ;
+
+
+INSERT INTO `librain` VALUES ('admin','1234');
+--
+-- Table structure for table `stoke`
+--
+
+CREATE TABLE `stoke` (
+  `serialnumber` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Table structure for table `student`
+--
+
+CREATE TABLE `student` (
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `id` varchar(50) DEFAULT NULL
+) ;
+
+--
+-- Dumping data for table `student`
+--
+
+
+INSERT INTO `student` VALUES ('teddy','1234','bdu1405402'),('jo','1234','bdu1405402'),('abebe','1234','bdu1405402'),('2333','beso','1234'),('1234','abebe','1234');
+
