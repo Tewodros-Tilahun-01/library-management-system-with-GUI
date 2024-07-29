@@ -1,11 +1,11 @@
 package userInterface.librarian;
 
-import com.example.fxdemo.Book;
+
 import com.example.fxdemo.BorrowedBook;
 import com.example.fxdemo.Database;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
